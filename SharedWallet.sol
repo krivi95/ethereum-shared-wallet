@@ -1,4 +1,5 @@
-pragma solidity ^0.6.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
 
 import "./Allowance.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol";
@@ -9,7 +10,7 @@ contract SharedWallet is Allowance{
     event MoneySent(address indexed _beneficiary, uint _amount);
     event MoneyDeposited(address indexed from, uint _amount);
     
-    function renounceOwnership() public override onlyOwner {
+    function renounceOwnership() public override view onlyOwner {
         //Overriding function for renouncing ownership (function from Ownable contract)
         revert("Can't renounce ownership of this funds!");
     }
